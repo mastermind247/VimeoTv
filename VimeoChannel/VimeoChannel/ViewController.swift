@@ -40,7 +40,9 @@ extension ViewController {
         let headers: HTTPHeaders = [
             "Authorization":"Bearer a8b95bef8cf89109e1738cbfe3f749ce"
         ]
-        Alamofire.request("https://api.vimeo.com/channels/musicvideoland/videos?per_page=100", headers: headers)
+//        https://api.vimeo.com/channels/musicvideoland/videos?per_page=100
+        let requestUrl = "https://api.vimeo.com/users/62781041/videos?per_page=100"
+        Alamofire.request(requestUrl, headers: headers)
             .responseObject { (response: DataResponse<ChannelResponse>) in
                 self.channelResponse = response.result.value
                 self.hideActivityHUD()
